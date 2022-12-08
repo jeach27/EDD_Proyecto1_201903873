@@ -5,9 +5,51 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Muster Cloud</title>
+    <link rel="stylesheet" href="estilo.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+
 </head>
 <body>
-    <h1>hola</h1>
+
+    <div>
+        <nav class="navbar bg-light">
+            <div class="container-fluid">
+              <a class = "navbar-brand">MUSTER CLOUD</a>
+              <form class = "d-flex" >
+                <button class = "btn btn-outline-success" id="CSesion" style="display: none;">Cerrar Sesion</button>
+              </form>
+            </div>
+        </nav>
+    </div>
+
+    <div id="login"  style="display: block;">
+        
+        <center>
+            <h2>INGRESAR</h2>
+            <p>Ingrese usuario y contraseña</p>
+
+            <form >
+                <input class = "form-control me-2" id = "user">
+                <label class="form-label" for="user">Nombre Usuario</label>
+
+                <input class = "form-control me-2" id = "password" >
+                <label class="form-label" for="password">Contraseña</label>
+                
+                <div>
+                    <input type="checkbox" id="checkAdmin">
+                    <label for="checkAdmin">Administrador</label>
+
+                    <button class = "btn btn-outline-success" id="login1">Login</button>
+
+                </div>
+            </form>
+        </center>
+    </div>
+
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+    <script src="https://unpkg.com/@hpcc-js/wasm@0.3.11/dist/index.min.js"></script>   
+    <script src="https://unpkg.com/d3-graphviz@3.0.5/build/d3-graphviz.js"></script>
+    
     <script src="funciones.js"></script>
 </body>
 </html>
