@@ -28,8 +28,8 @@ export class ListaS{
 
     display(){
         var aux = this.head;
-        while (aux.next != null) {
-            console.log(aux.data);
+        while (aux != null) {
+            console.log(aux.data.dpi);
             aux = aux.next;
         }
     }
