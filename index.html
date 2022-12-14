@@ -16,8 +16,8 @@
             <div class="container-fluid justify-content-space-around">
               <a class = "navbar-brand">MUSTER CLOUD</a>
               <form class = "d-flex" >
-                <button class = "btn btn-outline-success" id="registrar" style="display: block;">Registrar</button>
-                <button class = "btn btn-outline-success" id="CSesion" style="display: none;">Cerrar Sesion</button>
+                <button class = "btn btn-outline-secondary" id="registrar" style="display: block;">Registrar</button>
+                <button class = "btn btn-outline-secondary" id="CSesion" style="display: none;">Cerrar Sesion</button>
               </form>
             </div>
         </nav>
@@ -40,7 +40,7 @@
                     <input type="checkbox" id="checkAdmin">
                     <label for="checkAdmin">Administrador</label>
 
-                    <button class = "btn btn-outline-success" id="login1">Login</button>
+                    <button class = "btn btn-dark" id="login1">Login</button>
 
                 </div>
             </form>
@@ -69,19 +69,19 @@
                 <label class="form-label" for="password1">Contraseña</label>
                 
                 <div>
-                    <button class = "btn btn-outline-success" id="registro1">Registrar</button>
-                    <button class = "btn btn-outline-success" id="Cregistro1">Cancelar</button>
+                    <button class = "btn btn-dark" id="registro1">Registrar</button>
+                    <button class = "btn btn-dark" id="Cregistro1">Cancelar</button>
                 </div>
             </form>
         </center>
     </div>
 
     <div id="admin" style="display: none;">
-        
+
         <div id="cargasMasivas">
             <center>
-            <h3>Botones de Carga Masiva</h3>
-        </center>
+                <h3>Botones de Carga Masiva</h3>
+            </center>
         <div id="botonesCarga">
             <div id="cargas">
                 <label class="form-label" for="cargaUsuarios" >Carga Masiva Usuarios</label>
@@ -112,10 +112,29 @@
             </div>
         </div>
         </div>
-        
-        <div id="graficas">
 
-        </div>
+        <center>
+            <div id="graficas">
+                        
+                <div id="graf">
+                    <center>
+                        <h3>Botones de Graficas</h3>
+                        <button class = "btn btn-outline-success" id="gUsuarios">Grafica Usuarios</button>
+                        <button class = "btn btn-outline-success" id="gArtistas">Grafica Artistas</button>
+                        <button class = "btn btn-outline-success" id="gMusica">Grafica Musica</button>
+                        <button class = "btn btn-outline-success" id="gPodcast">Grafica Podcast</button>
+                    </center>  
+                </div>  
+
+                <div id="mostrarG">
+
+                </div>  
+                
+                
+            </div>
+        </center>
+        
+
     </div>
 
     <div id="usuario" style="display: none;">
