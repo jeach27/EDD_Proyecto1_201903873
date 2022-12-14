@@ -53,7 +53,6 @@ class Podcast{
 var listaUsuarios = new ListaS();
 var admin = new Usuario("2654568452521", "Oscar Armin", "EDD", "123", "+502 (123) 123-4567", true);
 listaUsuarios.append(admin);
-listaUsuarios.display();
 
 function mostrar(id) {
     if(document.getElementById(id).style.display == 'none'){
@@ -116,7 +115,11 @@ function leerArchivoArtistas(e) {
         var contenido = e.target.result;
         let intern = JSON.parse(contenido);
         for(let item of intern) {
-            console.log(item.name);
+            var name = item.name;
+            var age = item.age;
+            var country = item.country;
+            var tempA = new Artista(name, age, country);
+
         }
     };
     lector.readAsText(archivo);
@@ -133,7 +136,11 @@ function leerArchivoCanciones(e) {
         var contenido = e.target.result;
         let intern = JSON.parse(contenido);
         for(let item of intern) {
-            console.log(item.artist);
+            var artist = item.artist;
+            var name = item.name;
+            var duration = item.duration;
+            var gender = item.gender;
+            var tempC = new Cancion(artist, name, duration, gender);
         }
     };
     lector.readAsText(archivo);
@@ -150,7 +157,11 @@ function leerArchivoMusica(e) {
         var contenido = e.target.result;
         let intern = JSON.parse(contenido);
         for(let item of intern) {
-            console.log(item.month);
+            var month = item.month;
+            var day = item.day;
+            var song = item.song;
+            var artist = item.artist;
+            var tempM = new Musica(month, day, song, artist);
         }
     };
     lector.readAsText(archivo);
@@ -167,7 +178,11 @@ function leerArchivoPodcast(e) {
         var contenido = e.target.result;
         let intern = JSON.parse(contenido);
         for(let item of intern) {
-            console.log(item.topic);
+            var name = item.name;
+            var topic = item.topic;
+            var guests = item.guests;
+            var duration = item.duration;
+            var tempP = new Podcast(name, topic, guests, duration);
         }
     };
     lector.readAsText(archivo);

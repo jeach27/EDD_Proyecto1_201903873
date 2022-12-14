@@ -14,12 +14,12 @@ export class treeB{
         this.connect = null;
     }
 
-    appendRecursive(data, data1,root){
+    appendRecursive(data, data1, root){
         if(root == null){
             var temp = new NodeT(data1);
             return temp;
         }else{
-            if(data < root.data.dpi){
+            if(data < root.data.name){
                 root.left = this.appendRecursive(data,data1, root.left);
             }else{
                 root.right = this.appendRecursive(data, data1, root.right);
@@ -28,14 +28,14 @@ export class treeB{
         }
         
     }
-
+    //parametro(name, data)
     append(data, dataNode){
         this.root = this.appendRecursive(data,dataNode, this.root);        
     }
 
     preOrderRecursive(root){
         if(root){
-            console.log(root.data.nameW);
+            console.log(root.data.name);
             this.preOrderRecursive(root.left);
             this.preOrderRecursive(root.right);
         }
@@ -48,7 +48,7 @@ export class treeB{
     inOrderRecursive(root){
         if(root){
             this.inOrderRecursive(root.left);
-            console.log(root.data.nameW);
+            console.log(root.data.name);
             this.inOrderRecursive(root.right);
         }
     }
@@ -61,7 +61,7 @@ export class treeB{
         if(root){
             this.postOrderRecursive(root.left);
             this.postOrderRecursive(root.right);
-            console.log(root.data.nameW);
+            console.log(root.data.name);
         }
     }
 
@@ -71,12 +71,12 @@ export class treeB{
 
     graph1(head){
         if(head != null){
-            this.nodes += head.data.dpi+"[label=\""+head.data.nameW+"\"];\n";
+            this.nodes += head.data.name+"[label=\""+head.data.name+"\"];\n";
             if(head.left != null){
-                this.connect += head.data.dpi + "->" + head.left.data.dpi + ";\n";
+                this.connect += head.data.name + "->" + head.left.data.name + ";\n";
             }
             if(head.right != null){
-                this.connect += head.data.dpi + " -> " + head.right.data.dpi + ";\n";
+                this.connect += head.data.name + " -> " + head.right.data.name + ";\n";
             }
             this.graph1(head.left);
             this.graph1(head.right);

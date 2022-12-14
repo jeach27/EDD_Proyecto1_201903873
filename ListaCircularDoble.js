@@ -33,7 +33,7 @@ export class ListCD{
         var temp = this.head;
         var cont = 0;
         while(cont < this.size){
-            console.log(temp.data);
+            console.log(temp.data.name);
             temp = temp.next;
             cont++;
         }
@@ -41,13 +41,13 @@ export class ListCD{
 
     
 
-    look3(book){
+    look3(cancion){
         var temp = this.head;
         var cont = 0;
         while(cont < this.size){
-            var libro = temp.data.nameB;
-            if(libro == book){
-                return temp.data.amount;
+            var can = temp.data.name;
+            if(can == cancion){
+                return temp.data.artist;
 
             }else{
                 temp = temp.next;
@@ -56,7 +56,7 @@ export class ListCD{
             }
                 
         }
-        return "no se ha encontrado este libro"
+        return "no se ha encontrado esta cancion"
 
     }
     
