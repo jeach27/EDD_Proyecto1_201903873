@@ -13,3 +13,14 @@
     
     text-align: center;
 }
+
+#botonesCarga{
+    display: flex;
+    justify-content: space-around;
+}
+
+#cargas{
+    text-align: center;
+    margin: 10px;
+    background-color: rgb(133, 199, 66);
+}

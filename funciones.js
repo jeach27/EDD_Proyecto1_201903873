@@ -91,8 +91,16 @@ function leerArchivoUsuarios(e) {
         var contenido = e.target.result;
         let intern = JSON.parse(contenido);
         for(let item of intern) {
-            console.log(item.username);
+            var dpi = item.dpi;
+            var name = item.name;
+            var username = item.username;
+            var pass = item.password;
+            var phone = item.phone;
+            var admin = item.admin;
+            var tempU = new Usuario(dpi, name, username, pass, phone, admin);
+            listaUsuarios.append(tempU);
         }
+        listaUsuarios.display();
     };
     lector.readAsText(archivo);
 
@@ -166,6 +174,7 @@ function leerArchivoPodcast(e) {
 
 }
 
+//Boton de Login
 document.getElementById('login1').addEventListener('click',function(e){
     e.preventDefault();
     var user = document.getElementById('user').value;
@@ -180,6 +189,7 @@ document.getElementById('login1').addEventListener('click',function(e){
         if (ver == true) {
             ocultar('login');
             mostrar('CSesion');
+            mostrar('admin');
             
 
         }else{
@@ -192,20 +202,22 @@ document.getElementById('login1').addEventListener('click',function(e){
             ocultar('login');
             ocultar('registrar');
             mostrar('CSesion');
+            mostrar('usuario');
 
         }else{
             alert(ver);
         }
     }
 });
-
+//Boton de ir al Registro
 document.getElementById('registrar').addEventListener('click', function(e){
     e.preventDefault();
     ocultar('login');
     ocultar('registrar');
+    ocultar('admin');
     mostrar('registro');
 });
-
+// Boton de registrar
 document.getElementById('registro1').addEventListener('click', function(e){
     e.preventDefault();
     var user = document.getElementById('user1').value;
@@ -214,37 +226,23 @@ document.getElementById('registro1').addEventListener('click', function(e){
     var phone = document.getElementById('phone1').value;
     var pass = document.getElementById('password1').value;
 
-    if (!user) {
-        alert("Ingrese Nombre Usuario");
-        if(!name){
-            alert("Ingrese Nombre Completo");
-            if (!dpi) {
-                alert("Ingrese DPI");
-                if (!phone) {
-                    alert("Ingrese telefono");
-                    if (!pass) {
-                        alert("Ingrese Contraseña");
-                    }else{
-                        document.getElementById('user1').value = "";
-                        document.getElementById('name1').value = "";
-                        document.getElementById('dpi1').value = "";
-                        document.getElementById('phone1').value = "";
-                        document.getElementById('password1').value = "";
-                        ocultar('login');
-                        ocultar('registrar');
-                        ocultar('registro');
-                        mostrar('CSesion');
-                        mostrar('usuario');
-
-                    }
-                }
-            }
-        }
+    if (user && name && dpi && phone && pass){
+        document.getElementById('user1').value = "";
+        document.getElementById('name1').value = "";
+        document.getElementById('dpi1').value = "";
+        document.getElementById('phone1').value = "";
+        document.getElementById('password1').value = "";
+        var newU = new Usuario(dpi, name, user, pass, phone, false);
+        listaUsuarios.append(newU);
+        listaUsuarios.display();
+        ocultar('registro');
+        mostrar('CSesion');
+        mostrar('usuario');
+    }else{
+        alert("Ingrese todos los datos");
     }
-    
-    
 });
-
+//Boton de Cancelar Registro
 document.getElementById('Cregistro1').addEventListener('click', function(e){
     e.preventDefault();
     document.getElementById('user1').value = "";
@@ -256,4 +254,21 @@ document.getElementById('Cregistro1').addEventListener('click', function(e){
     mostrar('login');
     mostrar('registrar');
 });
+//Boton de Cerrar Sesion 
+document.getElementById('CSesion').addEventListener('click', function(e){
+    e.preventDefault();
+    ocultar('registro');
+    ocultar('CSesion');
+    ocultar('admin');
+    ocultar('usuario');
+    mostrar('login');
+    mostrar('registrar');
+
+});
+//Boton de Carga Masiva Usuarios
+document.getElementById('cargaUsuarios').addEventListener('change', leerArchivoUsuarios, false);
+document.getElementById('cargaArtistas').addEventListener('change', leerArchivoArtistas, false);
+document.getElementById('cargaCanciones').addEventListener('change', leerArchivoCanciones, false);
+document.getElementById('cargaPodcast').addEventListener('change', leerArchivoPodcast, false);
+document.getElementById('cargaMusica').addEventListener('change', leerArchivoMusica, false);
 

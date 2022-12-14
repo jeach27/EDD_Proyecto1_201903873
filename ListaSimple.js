@@ -61,8 +61,8 @@ export class ListaS{
     look3(user, pass){
         var aux = this.head;
         while(aux != null){
-            var us = temp.data.username;
-            var pas = temp.data.password;
+            var us = aux.data.username;
+            var pas = aux.data.password;
 
             if(user == us){
                 if(pass == pas){
