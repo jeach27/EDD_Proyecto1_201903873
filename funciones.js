@@ -51,12 +51,35 @@ class Podcast{
 }
 
 var listaUsuarios = new ListaS();
-var user = new Usuario("3443", "dasdsa", "dasd", "dadsad", "dasda");
-var user2 = new Usuario("34432", "dasdsa", "dasd", "dadsad", "dasda");
-listaUsuarios.append(user);
-listaUsuarios.append(user2);
+var admin = new Usuario("2654568452521", "Oscar Armin", "EDD", "123", "+502 (123) 123-4567", true);
+listaUsuarios.append(admin);
 listaUsuarios.display();
 
+function mostrar(id) {
+    if(document.getElementById(id).style.display == 'none'){
+
+        document.getElementById(id).style.display = 'block';
+        
+
+    }else{
+
+        document.getElementById(id).style.display = 'block';
+        
+    }
+}
+
+function ocultar(id) {
+    if(document.getElementById(id).style.display == 'block'){
+
+        document.getElementById(id).style.display = 'none';
+        
+
+    }else{
+
+        document.getElementById(id).style.display = 'none';
+        
+    }
+}
 
 function leerArchivoUsuarios(e) {
     var archivo = e.target.files[0];
@@ -142,4 +165,95 @@ function leerArchivoPodcast(e) {
     lector.readAsText(archivo);
 
 }
+
+document.getElementById('login1').addEventListener('click',function(e){
+    e.preventDefault();
+    var user = document.getElementById('user').value;
+    var pass = document.getElementById('password').value;
+
+    document.getElementById('user').value = "";
+    document.getElementById('password').value = "";
+
+    if (document.getElementById("checkAdmin").checked) {
+        var ver = listaUsuarios.look2(user,pass);
+        //Administrador
+        if (ver == true) {
+            ocultar('login');
+            mostrar('CSesion');
+            
+
+        }else{
+            alert(ver);
+        }
+    }else{
+        //Usuario Comun
+        var ver = listaUsuarios.look3(user,pass);
+        if (ver == true) {
+            ocultar('login');
+            ocultar('registrar');
+            mostrar('CSesion');
+
+        }else{
+            alert(ver);
+        }
+    }
+});
+
+document.getElementById('registrar').addEventListener('click', function(e){
+    e.preventDefault();
+    ocultar('login');
+    ocultar('registrar');
+    mostrar('registro');
+});
+
+document.getElementById('registro1').addEventListener('click', function(e){
+    e.preventDefault();
+    var user = document.getElementById('user1').value;
+    var name = document.getElementById('name1').value;
+    var dpi = document.getElementById('dpi1').value;
+    var phone = document.getElementById('phone1').value;
+    var pass = document.getElementById('password1').value;
+
+    if (!user) {
+        alert("Ingrese Nombre Usuario");
+        if(!name){
+            alert("Ingrese Nombre Completo");
+            if (!dpi) {
+                alert("Ingrese DPI");
+                if (!phone) {
+                    alert("Ingrese telefono");
+                    if (!pass) {
+                        alert("Ingrese Contraseña");
+                    }else{
+                        document.getElementById('user1').value = "";
+                        document.getElementById('name1').value = "";
+                        document.getElementById('dpi1').value = "";
+                        document.getElementById('phone1').value = "";
+                        document.getElementById('password1').value = "";
+                        ocultar('login');
+                        ocultar('registrar');
+                        ocultar('registro');
+                        mostrar('CSesion');
+                        mostrar('usuario');
+
+                    }
+                }
+            }
+        }
+    }
+    
+    
+});
+
+document.getElementById('Cregistro1').addEventListener('click', function(e){
+    e.preventDefault();
+    document.getElementById('user1').value = "";
+    document.getElementById('name1').value = "";
+    document.getElementById('dpi1').value = "";
+    document.getElementById('phone1').value = "";
+    document.getElementById('password1').value = "";
+    ocultar('registro');
+    mostrar('login');
+    mostrar('registrar');
+});
 

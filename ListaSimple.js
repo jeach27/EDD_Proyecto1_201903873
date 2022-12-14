@@ -33,4 +33,52 @@ export class ListaS{
             aux = aux.next;
         }
     }
+
+    look2(user, pass){
+        var aux = this.head;
+        while (aux != null) {
+            var us = aux.data.username;
+            var pas = aux.data.password;
+
+            if(user == us){
+                if(pass == pas){
+                    if (aux.data.admin == true) {
+                        return true;
+                    }
+                    if (aux.data.admin != true){
+                        return "El usuario no es Administrador";
+                    }
+                }else{
+                    return "La contraseña es incorrecta";
+                }   
+            }
+            aux = aux.next;
+        }
+        return "no se ha encontrado este usuario"
+        
+    }
+
+    look3(user, pass){
+        var aux = this.head;
+        while(aux != null){
+            var us = temp.data.username;
+            var pas = temp.data.password;
+
+            if(user == us){
+                if(pass == pas){
+                    if (aux.data.admin != true) {
+                        return true;
+                    }
+                    if (aux.data.admin == true){
+                        return "El usuario es Administrador";
+                    }
+                }else{
+                    return "La contraseña es incorrecta";
+                }   
+            }
+            aux = aux.next;
+        }
+        return "no se ha encontrado este usuario"
+
+    }
 }
