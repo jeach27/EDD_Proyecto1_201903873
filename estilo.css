@@ -1,5 +1,9 @@
+body {
+    background-image: linear-gradient(to right,rgb(14, 13, 13),rgb(146, 45, 200));
+}
+
 #login{
-    background-color: #9666ca;
+    background-color: #8a55c3;
     margin: 6rem;
     padding: 4rem;
     text-align: center;
@@ -8,7 +12,7 @@
 }
 
 #registro{
-    background-color: #9666ca;
+    background-color: #8a55c3;
     margin: 6rem;
     padding: 4rem;
     text-align: center;

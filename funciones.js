@@ -54,6 +54,20 @@ var listaUsuarios = new ListaS();
 var admin = new Usuario("2654568452521", "Oscar Armin", "EDD", "123", "+502 (123) 123-4567", true);
 listaUsuarios.append(admin);
 
+var arbolPodcast = new treeB();
+/*
+var tempP1 = new Podcast("Auan1", "topic", "guests", "duration");
+var tempP2 = new Podcast("Dateo", "topic", "guests", "duration");
+var tempP3 = new Podcast("Coaq", "topic", "guests", "duration");
+var tempP4 = new Podcast("Buincho", "topic", "guests", "duration");
+var tempP5 = new Podcast("Eldair", "topic", "guests", "duration");
+arbolPodcast.append("Auan1",tempP1);
+arbolPodcast.append("Dateo",tempP2);
+arbolPodcast.append("Coaq",tempP3);
+arbolPodcast.append("Buincho",tempP4);
+arbolPodcast.append("Eldair",tempP5);
+*/
+
 function mostrar(id) {
     if(document.getElementById(id).style.display == 'none'){
 
@@ -183,6 +197,7 @@ function leerArchivoPodcast(e) {
             var guests = item.guests;
             var duration = item.duration;
             var tempP = new Podcast(name, topic, guests, duration);
+            arbolPodcast.append(name,tempP);
         }
     };
     lector.readAsText(archivo);
@@ -280,10 +295,33 @@ document.getElementById('CSesion').addEventListener('click', function(e){
     mostrar('registrar');
 
 });
-//Boton de Carga Masiva Usuarios
+//Botones de Carga Masiva 
 document.getElementById('cargaUsuarios').addEventListener('change', leerArchivoUsuarios, false);
 document.getElementById('cargaArtistas').addEventListener('change', leerArchivoArtistas, false);
 document.getElementById('cargaCanciones').addEventListener('change', leerArchivoCanciones, false);
 document.getElementById('cargaPodcast').addEventListener('change', leerArchivoPodcast, false);
 document.getElementById('cargaMusica').addEventListener('change', leerArchivoMusica, false);
+
+//Botones de GraficasAdmin
+document.getElementById('gUsuarios').addEventListener('click', function(e){
+    document.getElementById('mostrarGU').innerHTML = '';
+    document.getElementById('mostrarGA').innerHTML = '';
+    document.getElementById('mostrarGM').innerHTML = '';
+    document.getElementById('mostrarGP').innerHTML = '';
+    listaUsuarios.graph();
+});
+document.getElementById('gArtistas').addEventListener('click', function(e){
+
+});
+document.getElementById('gMusica').addEventListener('click', function(e){
+
+});
+document.getElementById('gPodcast').addEventListener('click', function(e){
+    document.getElementById('mostrarGU').innerHTML = '';
+    document.getElementById('mostrarGA').innerHTML = '';
+    document.getElementById('mostrarGM').innerHTML = '';
+    document.getElementById('mostrarGP').innerHTML = '';
+    arbolPodcast.graph();
+    //arbolPodcast.postOrder();
+});
 
