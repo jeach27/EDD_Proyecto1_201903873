@@ -109,4 +109,32 @@ export class ListaS{
             .height(600)
             .renderDot(code)
     }
+
+    graph1(){
+        var code = "digraph G{\nlabel= \"List S\"\nrankdir=LR \n node [shape=box];\n";
+        var temp = this.head;
+        var connect = "";
+        var nodes = "";
+        var contNodes = 0;
+        while(temp != null ){
+            nodes+= "N" + contNodes + "[label=\"" + temp.data.name + "\" ];\n";
+
+            
+            var aux = contNodes+1;
+            connect+= "N" + contNodes + " -> N" + aux + "\n";
+            
+            temp = temp.next;
+            contNodes++;
+        }
+        //connect+= "N" + contNodes + " -> N0 [dir=both];\n";
+        code += "//agregando nodos\n";
+        code += nodes+"\n";
+        code += "//agregando conexiones o flechas\n";
+        code += "\n"+connect+"\n}";
+        console.log(code);
+        d3.select("#mostrarUsuarios").graphviz()
+            .width(900)
+            .height(200)
+            .renderDot(code)
+    }
 }

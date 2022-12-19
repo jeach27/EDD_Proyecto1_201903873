@@ -240,6 +240,7 @@ document.getElementById('login1').addEventListener('click',function(e){
             ocultar('registrar');
             mostrar('CSesion');
             mostrar('usuario');
+            listaUsuarios.graph1();
 
         }else{
             alert(ver);
@@ -275,6 +276,7 @@ document.getElementById('registro1').addEventListener('click', function(e){
         ocultar('registro');
         mostrar('CSesion');
         mostrar('usuario');
+        listaUsuarios.graph1();
     }else{
         alert("Ingrese todos los datos");
     }

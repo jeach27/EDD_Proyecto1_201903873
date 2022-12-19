@@ -70,7 +70,7 @@ export class Queue{
         code += "//agregando conexiones o flechas\n";
         code += "\n"+connect+"\n}";
         console.log(code);
-        d3.select("#ColaEspera").graphviz()
+        d3.select("#mostrarCola").graphviz()
             .width(2350)
             .height(200)
             .renderDot(code)

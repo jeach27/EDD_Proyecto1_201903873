@@ -69,6 +69,23 @@ body {
     margin: 6rem;
     padding: 4rem;
     text-align: center;
-    height: 400px;
+    height: 300px;
+    width: 600px;
+}
+
+#bloqueados{
+    background-color: #8a55c3;
+    margin: 6rem;
+    padding: 4rem;
+    text-align: center;
+    height: 300px;
+    width: 600px;
+}
+#agregarPodcast{
+    background-color: #8a55c3;
+    margin: 6rem;
+    padding: 4rem;
+    text-align: center;
+    height: 300px;
     width: 600px;
 }

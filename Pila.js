@@ -57,7 +57,7 @@ export class Stack{
         code += `</table>>];\n}`;
 
         console.log(code);
-        d3.select("#Libro").graphviz()
+        d3.select("#mostrarPila").graphviz()
             .width(2350)
             .height(200)
             .renderDot(code)
