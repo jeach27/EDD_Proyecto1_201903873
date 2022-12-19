@@ -12,6 +12,8 @@ class Usuario{
         this.password = pass;
         this.phone = phone;
         this.admin = admin;
+        this.amigos = new Stack();
+        this.bloqueados = new Queue();
     }
 }
 

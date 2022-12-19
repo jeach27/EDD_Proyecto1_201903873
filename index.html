@@ -142,6 +142,42 @@
 
     <div id="usuario" style="display: none;">
 
+        <div id="otrosUsuarios">
+            <div id="amigos" class="card">
+                <form >
+                    <input class = "form-control me-2" id = "userA">
+                    <label class="form-label" for="userA">Nombre Usuario</label>
+
+                    <div>
+                        <button class = "btn btn-dark" id="agregarAmigos">Agregar Amigo</button>
+                    </div>
+                </form>
+            </div>
+            <div id="mostrarPila"></div>
+            <div id="bloqueados" class="card">
+                <form >
+                    <input class = "form-control me-2" id = "userB">
+                    <label class="form-label" for="userB">Nombre Usuario</label>
+                    
+                    <div>
+                        <button class = "btn btn-dark" id="agregarBloqueado">Agregar Bloqueado</button>
+                    </div>
+                </form>
+            </div>
+            <div id="mostrarCola"></div>
+
+        </div>
+        
+        <div id="agregarPodcast" class="card" style="display: none;">
+            <form >
+                <input class = "form-control me-2" id = "nameP">
+                <label class="form-label" for="nameP">Nombre Podcast</label>
+
+                <div>
+                    <button class = "btn btn-dark" id="agregarPodcastU">Agregar Podcast</button>
+                </div>
+            </form>
+        </div>
     </div>
 
     <script src="https://d3js.org/d3.v5.min.js"></script>

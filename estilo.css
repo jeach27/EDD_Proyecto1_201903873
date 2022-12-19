@@ -63,3 +63,12 @@ body {
     width: 1200px;
     margin: 30px;
 }
+
+#amigos{
+    background-color: #8a55c3;
+    margin: 6rem;
+    padding: 4rem;
+    text-align: center;
+    height: 400px;
+    width: 600px;
+}
