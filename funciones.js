@@ -20,6 +20,7 @@ class Artista{
         this.name = name;
         this.age = age;
         this.country = country;
+        this.canciones = new ListaS();
     }
 }
 
@@ -53,6 +54,8 @@ class Podcast{
 var listaUsuarios = new ListaS();
 var admin = new Usuario("2654568452521", "Oscar Armin", "EDD", "123", "+502 (123) 123-4567", true);
 listaUsuarios.append(admin);
+
+var listaDobleArtistas = new ListCD();
 
 var arbolPodcast = new treeB();
 /*
@@ -133,7 +136,7 @@ function leerArchivoArtistas(e) {
             var age = item.age;
             var country = item.country;
             var tempA = new Artista(name, age, country);
-
+            listaDobleArtistas.append(tempA)
         }
     };
     lector.readAsText(archivo);
@@ -155,6 +158,8 @@ function leerArchivoCanciones(e) {
             var duration = item.duration;
             var gender = item.gender;
             var tempC = new Cancion(artist, name, duration, gender);
+            var listaCanciones = listaDobleArtistas.look3(artist);
+            listaCanciones.append(tempC);
         }
     };
     lector.readAsText(archivo);

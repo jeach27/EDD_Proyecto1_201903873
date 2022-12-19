@@ -41,13 +41,13 @@ export class ListCD{
 
     
 
-    look3(cancion){
+    look3(artista){
         var temp = this.head;
         var cont = 0;
         while(cont < this.size){
-            var can = temp.data.name;
-            if(can == cancion){
-                return temp.data.artist;
+            var can = temp.data.artist;
+            if(can == artista){
+                return temp.data.canciones;
 
             }else{
                 temp = temp.next;
